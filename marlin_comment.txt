@@ -1,0 +1,83 @@
+	
+==========================================================================
+marlin_main.cpp里面的参数
+==========================================================================
+（1）
+		static char command_queue[BUFSIZE][MAX_CMD_SIZE]; 		//BUFSIZE=4  MAX_CMD_SIZE = 96 用来保存接受到的命令
+		static char* current_command, *current_command_args;  	//current_command(用来保存从command_queue中读来的命令) 
+																//current_command_args(用来存放current_command解析出来的参数的那一部分字符串)
+		static uint8_t cmd_queue_index_r = 0, 					//保存读到那条命令的索引
+					   cmd_queue_index_w = 0, 					//保存写那条命令的索引
+					   commands_in_queue = 0; 					//保存还没有读取的数量
+（2）
+		ring_buffer_r rx_buffer = { { 0 }, 0, 0 };  
+		ring_buffer_t tx_buffer = { { 0 }, 0, 0 };、
+						struct ring_buffer_r {
+						  unsigned char buffer[RX_BUFFER_SIZE];  			//RX_BUFFER_SIZE=128
+						  volatile uint8_t head;
+						  volatile uint8_t tail;							//head 只想队头，元素出队时，head往后移动，tail指向想一个元素进来的地方。( RX_BUFFER_SIZE + h - t ) & ( RX_BUFFER_SIZE - 1 ) 这句话就是判断
+																			//接受到的数据的个数。
+						};													//这个用来定义recivie的一个队列的结构体。//ring_buffer_r defined in stm32_marlinserial.h
+						#if TX_BUFFER_SIZE > 0
+						  struct ring_buffer_t {
+							unsigned char buffer[TX_BUFFER_SIZE];			//TX_BUFFER_SIZE=32
+							volatile uint8_t head;
+							volatile uint8_t tail;
+						  };  												//这个用来定义send的一个队列的结构体
+						  
+（3）	// Inactivity shutdown
+		millis_t previous_cmd_ms = 0;				//上一次Gcode执行的时间的记录
+		static millis_t max_inactive_time = 0;		//两个Gcode执行时可以达到的最大的差值，需要通过Gcode命令进行设置max_inactive_time参数，没有设置的时候不会执行kill动作。
+		static millis_t stepper_inactive_time = (DEFAULT_STEPPER_DEACTIVE_TIME) * 1000UL;   这个值就是120s，两分钟	//两个Gcode执行时大于这个值，同时没有新的block，就会停止所有的电机转动			  
+						  
+(4)
+		static char* seen_pointer;  // GCode parameter pointer used by code_seen()用来保存code_seen()的						  
+
+(5)
+		bool axis_relative_modes[] = AXIS_RELATIVE_MODES;	//坐标是相对模式还是绝对模式
+		static bool relative_mode = false;					//坐标是相对模式还是绝对模式，这个值可以通过 Enable with G91, disable with G90来进行控制
+
+(6)
+		float current_position[NUM_AXIS] = { 0.0 };			//保存当前的位置信息
+		static float destination[NUM_AXIS] = { 0.0 };		//保存目标的位置信息
+		static float feedrate_mm_m = 1500.0  //这个参数用来保存Gcode的F参数的值，默认是1500mm/min
+						  
+==========================================================================
+endstop.cpp里面的参数
+==========================================================================						  				  
+	static byte current_endstop_bits, old_endstop_bits;		//0为没有碰到限位开关，	current_endstop_bits表示当前测量有没有碰到，old_endstop_bits代表当前的上一次有没有碰到
+	static volatile char endstop_hit_bits					//记录xyz当中是否碰到限位开关					  			  
+==========================================================================
+planner.h里面的参数
+==========================================================================							  
+
+typedef struct {
+		millimeters,                                // The total travel of this block in mm，从当前点移动到目标点一共走了多少路
+		
+		unsigned char active_extruder;            	// The extruder to move (if E move)选择哪一个挤出头在移动，默认是0
+		long steps[NUM_AXIS];                     	// Step count along each axis ，X轴从当前点移动到目标点需要走的steps
+		unsigned long step_event_count;           	// The number of step events required to complete this block  是xyze当中最大的一个
+		
+		unsigned long fan_speed[FAN_COUNT];			//风扇的速度
+		unsigned char direction_bits;				//电机移动的方向位
+		volatile char busy;						  	// block 的状态，false表示没有在stepper的中断里面执行
+		
+
+} block_t;	
+class Planner{
+		static block_t block_buffer[BLOCK_BUFFER_SIZE];			//BLOCK_BUFFER_SIZE=16   这个process_cmd每接受到一个电机的执行命令，就会去更新一个block_buffer，知道block_buffer更新完毕。
+		static volatile uint8_t block_buffer_head;              //Index of the next block to be pushed
+		static volatile uint8_t block_buffer_tail;
+
+		static float axis_steps_per_mm[NUM_AXIS]; 				//NUM_AXIS = 4 电机走1mm需要的steps
+		
+		static long position[NUM_AXIS]							//用于记录当前的绝对坐标的位置总共的steps数量，相对于0点的位置		
+		static float min_feedrate_mm_s;							//电机移动的最小的速度
+		static float min_travel_feedrate_mm_s;					//电机移动的最小的速度，可以通过Gcode进行设置
+}	
+	
+						  
+						  
+						  
+						  
+						  
