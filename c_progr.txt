@@ -1,17 +1,17 @@
-CÓïÑÔÃæÊÔÌâ·ÖÀà->×Ö·û´®´¦Àí
-1.strlen£º¼ÆËã×Ö·û´®³¤¶È£¨²»°üº¬'\0'£©
+Cè¯­è¨€é¢è¯•é¢˜åˆ†ç±»->å­—ç¬¦ä¸²å¤„ç†
+1.strlenï¼šè®¡ç®—å­—ç¬¦ä¸²é•¿åº¦ï¼ˆä¸åŒ…å«'\0'ï¼‰
 
-ÊµÏÖÏë·¨£º±éÀú×Ö·û´®£¬Ö±µ½'\0'½áÊø
+å®ç°æƒ³æ³•ï¼šéå†å­—ç¬¦ä¸²ï¼Œç›´åˆ°'\0'ç»“æŸ
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
  
-//Ö¸Õë·¨
-unsigned int mystrlenaddr(const char * str)  //ÎªÊ²Ã´Ê¹ÓÃconst char£¬ÎÒÃÇÖ»¼ÆÊı²»¶ÔÔ­Êı¾İ½øĞĞ¸Ä±ä
+//æŒ‡é’ˆæ³•
+unsigned int mystrlenaddr(const char * str)  //ä¸ºä»€ä¹ˆä½¿ç”¨const charï¼Œæˆ‘ä»¬åªè®¡æ•°ä¸å¯¹åŸæ•°æ®è¿›è¡Œæ”¹å˜
 {
-        int length = 0;  //³¤¶È³õÊ¼»¯Îª0
+        int length = 0;  //é•¿åº¦åˆå§‹åŒ–ä¸º0
         while (*str++)
         {
                 length++;
@@ -20,26 +20,26 @@ unsigned int mystrlenaddr(const char * str)  //ÎªÊ²Ã´Ê¹ÓÃconst char£¬ÎÒÃÇÖ»¼ÆÊı²
 }
 void main()
 {
-        char * str = "fengcong is fucking too handsome";  //32¸ö
+        char * str = "fengcong is fucking too handsome";  //32ä¸ª
         //printf("%d\n", strlen(str));
         printf("%d\n", mystrlenaddr(str));
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-2.strcmp£º±È½Ï×Ö·û´®´óĞ¡£¨Ò»°ãÓÃÓÚ×Ö·û´®ÅÅĞò£©
+å¤åˆ¶ä»£ç 
+2.strcmpï¼šæ¯”è¾ƒå­—ç¬¦ä¸²å¤§å°ï¼ˆä¸€èˆ¬ç”¨äºå­—ç¬¦ä¸²æ’åºï¼‰
 
-ÊµÏÖÏë·¨£ºÒÀ´Î´Ó×Ö·û´®¿ªÊ¼Ò»Ö±ÕÒµ½²»Í¬µÄÄÇ¸ö×Ö·û½øĞĞ±È½Ï£¬µÃ³ö´óĞ¡
+å®ç°æƒ³æ³•ï¼šä¾æ¬¡ä»å­—ç¬¦ä¸²å¼€å§‹ä¸€ç›´æ‰¾åˆ°ä¸åŒçš„é‚£ä¸ªå­—ç¬¦è¿›è¡Œæ¯”è¾ƒï¼Œå¾—å‡ºå¤§å°
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<string.h>
 #include<stdio.h>
 #include<stdlib.h>
  
-//ÕÆÎÕÖ¸Õë·¨
+//æŒæ¡æŒ‡é’ˆæ³•
 int mystrcmp(char const * str1, const char * str2)
 {
-        while (*str1 == *str2 && *str1 != '0')  //Ò»Ö±ÕÒµ½Á½¸ö×Ö·û´®²»Í¬µÄµØ·½
+        while (*str1 == *str2 && *str1 != '0')  //ä¸€ç›´æ‰¾åˆ°ä¸¤ä¸ªå­—ç¬¦ä¸²ä¸åŒçš„åœ°æ–¹
         {
                 str1++;
                 str2++;
@@ -64,36 +64,36 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-3.strcpy£ºÓÃÓÚ×Ö·û´®¸´ÖÆ£¨¸´ÖÆ°üº¬'\0'£©
+å¤åˆ¶ä»£ç 
+3.strcpyï¼šç”¨äºå­—ç¬¦ä¸²å¤åˆ¶ï¼ˆå¤åˆ¶åŒ…å«'\0'ï¼‰
 
-ÊµÏÖÏë·¨£ºÒ»Ö±¸´ÖÆµ½'\0'½áÊø
+å®ç°æƒ³æ³•ï¼šä¸€ç›´å¤åˆ¶åˆ°'\0'ç»“æŸ
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
  
-//Ö¸Õë·¨
+//æŒ‡é’ˆæ³•
 char * mystrcpyaddr(char * dest, const char * source)
 {
         if (dest == NULL || source == NULL)
         {
-                return NULL;   //Èç¹ûÄ¿µÄ²Ù×÷»òÕßÔ´Îª¿Õ£¬ÄÇÃ´¾ÃÖ±½Ó·µ»Ø
+                return NULL;   //å¦‚æœç›®çš„æ“ä½œæˆ–è€…æºä¸ºç©ºï¼Œé‚£ä¹ˆä¹…ç›´æ¥è¿”å›
         }
  
-        while (*dest++ = *source++)  //×°XĞ´·¨
+        while (*dest++ = *source++)  //è£…Xå†™æ³•
                 ;
         return dest;
 }
  
-//ÏÂ±ê·¨
+//ä¸‹æ ‡æ³•
 char * mystrcpyindex(char * dest, const char * source)
 {
         if (dest == NULL || source == NULL)
         {
-                return NULL;   //Èç¹ûÄ¿µÄ²Ù×÷»òÕßÔ´Îª¿Õ£¬ÄÇÃ´¾ÃÖ±½Ó·µ»Ø
+                return NULL;   //å¦‚æœç›®çš„æ“ä½œæˆ–è€…æºä¸ºç©ºï¼Œé‚£ä¹ˆä¹…ç›´æ¥è¿”å›
         }
         int i = 0;
         while (source != '\0')
@@ -101,14 +101,14 @@ char * mystrcpyindex(char * dest, const char * source)
                 dest = source;
                 i++;
         }
-        dest = source; //ÒòÎªÒª°Ñ×îºóµÄ\0¿½±´¹ıÈ¥
+        dest = source; //å› ä¸ºè¦æŠŠæœ€åçš„\0æ‹·è´è¿‡å»
         return dest;
 }
  
 void main()
 {
         char * str = "fengcong is fucking too handsome";
-        char str1[100]; //Ä¿µÄ×Ö·ûÊı×é
+        char str1[100]; //ç›®çš„å­—ç¬¦æ•°ç»„
         //strcpy(str1, str);
         //printf("%s\n", str1);
         mystrcpyindex(str1, str);
@@ -117,19 +117,19 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-4.strstr£ºÑ°ÕÒÄ¸´®ÖĞÊÇ·ñ´æÔÚÄ³¸ö×Ó´®£¨ÉÔÄÑ£©
-ÊµÏÖÏë·¨£ºÒÀ´Î±È¶Ô
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
+4.strstrï¼šå¯»æ‰¾æ¯ä¸²ä¸­æ˜¯å¦å­˜åœ¨æŸä¸ªå­ä¸²ï¼ˆç¨éš¾ï¼‰
+å®ç°æƒ³æ³•ï¼šä¾æ¬¡æ¯”å¯¹
+å¤åˆ¶ä»£ç 
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-//ÏÂ±ê ·¨
-char * mystrstrindex(char * const momstr, const char * const sonstr)//Ç°ÕßÖ¸ÕëÖ¸ÏòµÄÊı¾İ¿É±ä£¬µ«ÊÇÖ¸Õë²»¿É±ä£¬ºóÕß¶¼²»¿É±ä
+//ä¸‹æ ‡ æ³•
+char * mystrstrindex(char * const momstr, const char * const sonstr)//å‰è€…æŒ‡é’ˆæŒ‡å‘çš„æ•°æ®å¯å˜ï¼Œä½†æ˜¯æŒ‡é’ˆä¸å¯å˜ï¼Œåè€…éƒ½ä¸å¯å˜
 {
-        int momlen = strlen(momstr); //Ä¸´®µÄ³¤¶È
-        int sonlen = strlen(sonstr); //×Ó´®µÄ³¤¶È
-        for (int i = 0; i < (momlen - sonlen); i++)  //´Ó0¿ªÊ¼Ñ­»·Ä¸´®£¬µ½momlen-sonlenÍ£Ö¹
+        int momlen = strlen(momstr); //æ¯ä¸²çš„é•¿åº¦
+        int sonlen = strlen(sonstr); //å­ä¸²çš„é•¿åº¦
+        for (int i = 0; i < (momlen - sonlen); i++)  //ä»0å¼€å§‹å¾ªç¯æ¯ä¸²ï¼Œåˆ°momlen-sonlenåœæ­¢
         { 
                 int flag = 1;
                 for (int j = 0; j < sonlen; j++)
@@ -137,7 +137,7 @@ char * mystrstrindex(char * const momstr, const char * const sonstr)//Ç°ÕßÖ¸ÕëÖ¸
                         if (momstr[i + j] != sonstr[j])
                         {
                                 flag = 0;
-                                break;  //Èç¹û³öÏÖ²»ÏàµÈ¾Í ÍË³öÑ­»·£¬¼ÌĞø´ÓÏÂÃæÒ»¸öÑ°ÕÒ
+                                break;  //å¦‚æœå‡ºç°ä¸ç›¸ç­‰å°± é€€å‡ºå¾ªç¯ï¼Œç»§ç»­ä»ä¸‹é¢ä¸€ä¸ªå¯»æ‰¾
                         }
                 }
                 if (flag)
@@ -147,15 +147,15 @@ char * mystrstrindex(char * const momstr, const char * const sonstr)//Ç°ÕßÖ¸ÕëÖ¸
         }
         return NULL;
 }
-//Ö¸Õë·¨
+//æŒ‡é’ˆæ³•
 char * mystrstraddr(char * const momstr, const char * const sonstr)
 {
-        char * mstr = momstr;  //Ä¸´®
+        char * mstr = momstr;  //æ¯ä¸²
  
         while (*mstr)
         {
-                char * sstr = sonstr;  //×Ó´®
-                char * momnowstr = mstr;  //¼ÇÂ¼ÏÖÔÚÄ¸´®µÄÎ»ÖÃ
+                char * sstr = sonstr;  //å­ä¸²
+                char * momnowstr = mstr;  //è®°å½•ç°åœ¨æ¯ä¸²çš„ä½ç½®
                 int flag = 1;
                 while (*sstr != 0)
                 {
@@ -172,7 +172,7 @@ char * mystrstraddr(char * const momstr, const char * const sonstr)
                         return mstr;
                 }
                  
-                mstr++; //Ä¸´®¶Ô±ÈÎ»ÖÃ+1
+                mstr++; //æ¯ä¸²å¯¹æ¯”ä½ç½®+1
         }
         return NULL;
 }
@@ -186,11 +186,11 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 
-5.itoa:ÕûÊı×ª×Ö·û´®
+5.itoa:æ•´æ•°è½¬å­—ç¬¦ä¸²
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdlib.h>
 #include<stdio.h>
@@ -198,15 +198,15 @@ void main()
  
 char * myitoa(int value, char * str)
 {
-        char * pstr = str; //str±¾Éí²»ÄÜ¸Ä±ä£¬Ò»»áÒª·µ»Østr
+        char * pstr = str; //stræœ¬èº«ä¸èƒ½æ”¹å˜ï¼Œä¸€ä¼šè¦è¿”å›str
         if (value < 0)
         {
                 *pstr = '-';
                 pstr++;
-                value *= -1; //×ª±äÎªÕıÊı´¦Àí
+                value *= -1; //è½¬å˜ä¸ºæ­£æ•°å¤„ç†
         }
-        int wei = 1;  //ÊıÖÁÉÙÒ»Î»
-        int ivalue = value; //ÓÃÓÚ²âÊÔ³¤¶È
+        int wei = 1;  //æ•°è‡³å°‘ä¸€ä½
+        int ivalue = value; //ç”¨äºæµ‹è¯•é•¿åº¦
         while ((ivalue /=   10) != 0)
         {
                 wei++;
@@ -232,10 +232,10 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-6.atoi£º×Ö·û´®×ªÕûÊı£¨Óöµ½·ÇÊı×Ö×Ö·û½áÊø£©
+å¤åˆ¶ä»£ç 
+6.atoiï¼šå­—ç¬¦ä¸²è½¬æ•´æ•°ï¼ˆé‡åˆ°éæ•°å­—å­—ç¬¦ç»“æŸï¼‰
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
@@ -246,8 +246,8 @@ int myatoi(const char * str)
         {
                 return 0;  
         }
-        int num = 0; //ĞèÒª·µ»ØµÄÖµ
-        int flag = 1; //¼ÇÂ¼Õı¸ººÅ
+        int num = 0; //éœ€è¦è¿”å›çš„å€¼
+        int flag = 1; //è®°å½•æ­£è´Ÿå·
         if (*str == '-')
         {
                 flag = -1;
@@ -278,14 +278,14 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-7.memcpy:¿½±´Ä³¶ÎÄÚ´æ
+å¤åˆ¶ä»£ç 
+7.memcpy:æ‹·è´æŸæ®µå†…å­˜
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<stdio.h>
 #include<stdlib.h>
 #include<memory.h>
-//ÏÂ±ê·¨
+//ä¸‹æ ‡æ³•
 void * mymemcpybyindex(void * dest, const void * sor, size_t len)
 {
         if (dest == NULL || sor == NULL)
@@ -298,7 +298,7 @@ void * mymemcpybyindex(void * dest, const void * sor, size_t len)
         }
         return dest;
 }
-//Ö¸Õë·¨
+//æŒ‡é’ˆæ³•
 void * mymemcpybyaddr(void * dest, const void * sor, size_t len)
 {
         if (dest == NULL || sor == NULL)
@@ -319,7 +319,7 @@ void * mymemcpybyaddr(void * dest, const void * sor, size_t len)
 void main()
 {
         char str[50] = "fengcong is fucking too handsome";
-        char * pstr = (char[50]) { 0 };  //ÔÚÕ»ÉÏ¿ª±ÙÒ»¶ÎÄÚ´æ
+        char * pstr = (char[50]) { 0 };  //åœ¨æ ˆä¸Šå¼€è¾Ÿä¸€æ®µå†…å­˜
  
         //printf("%s\n", memcpy(pstr, str, 32));
         printf("%s\n", mymemcpybyaddr(pstr, str, 31));
@@ -327,13 +327,13 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-8.memset£º¶ÔÖ¸¶¨ÄÚ´æÃ¿¸ö×Ö½Ú¸³Ä³¸öÖµ
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
+8.memsetï¼šå¯¹æŒ‡å®šå†…å­˜æ¯ä¸ªå­—èŠ‚èµ‹æŸä¸ªå€¼
+å¤åˆ¶ä»£ç 
 #include<stdio.h>
 #include<stdlib.h>
 #include<memory.h>
-//ÏÂ±ê·¨
+//ä¸‹æ ‡æ³•
 void * mymemsetbyindex(void * dest, int val, size_t len)
 {
         if (dest == NULL)
@@ -352,7 +352,7 @@ void * mymemsetbyindex(void * dest, int val, size_t len)
         return dest;
 }
  
-//Ö¸Õë·¨
+//æŒ‡é’ˆæ³•
 void * mymemsetbyaddr(void * dest, int val, size_t len)
 {
         if (dest == NULL)
@@ -379,12 +379,12 @@ void main()
         printf("%s\n", mymemsetbyaddr(str, 65, 8));
         system("pause");
 }
-¸´ÖÆ´úÂë
-9.memmove£ººÍmemcpyÀàËÆ£¬µ«ÊÇmemmove²ÉÓÃÁËÖĞ¼ä¿Õ¼ä£¬memcpyÊÇÖ±½Ó¿½±´
+å¤åˆ¶ä»£ç 
+9.memmoveï¼šå’Œmemcpyç±»ä¼¼ï¼Œä½†æ˜¯memmoveé‡‡ç”¨äº†ä¸­é—´ç©ºé—´ï¼Œmemcpyæ˜¯ç›´æ¥æ‹·è´
 
-Á½ÕßÇø±ğÖ®´¦ÔÚÓÚµ±¿½±´µØÖ·ÖØ¸´µÄÊ±ºò£¬½á¹û²»Ò»Ñù£¨±È½Ï´úÂë¿ÉÖª£©
+ä¸¤è€…åŒºåˆ«ä¹‹å¤„åœ¨äºå½“æ‹·è´åœ°å€é‡å¤çš„æ—¶å€™ï¼Œç»“æœä¸ä¸€æ ·ï¼ˆæ¯”è¾ƒä»£ç å¯çŸ¥ï¼‰
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<stdlib.h>
 #include<stdio.h>
 #include<string.h>
@@ -392,17 +392,17 @@ void main()
 char * myftoa(double db, char * str)
 {
         char * pstr = str;
-        //ÏÈÅĞ¶Ï ·ûºÅÎ»
+        //å…ˆåˆ¤æ–­ ç¬¦å·ä½
         if (db < 0)
         {
                 *pstr = '-';
-                db *= -1;  //×ªÎªÕıÊı´¦Àí
+                db *= -1;  //è½¬ä¸ºæ­£æ•°å¤„ç†
                 pstr++;
         }
-        //ÕûÊı²¿·Ö
+        //æ•´æ•°éƒ¨åˆ†
         int zhengshu = (int)db;
-        int izhengshu = zhengshu; //ÎşÉüÓÚ¼ÇÂ¼ÕûÊı³¤¶È
-        int wei = 1;  //ÕûÊı²¿·ÖÖÁÉÙÒ»Î»
+        int izhengshu = zhengshu; //ç‰ºç‰²äºè®°å½•æ•´æ•°é•¿åº¦
+        int wei = 1;  //æ•´æ•°éƒ¨åˆ†è‡³å°‘ä¸€ä½
         while ((izhengshu /= 10) != 0)
         {
                 wei++;
@@ -416,7 +416,7 @@ char * myftoa(double db, char * str)
         pstr += (wei+1);
         *pstr = '.';
         pstr++;
-        //Ğ¡Êı²¿·Ö
+        //å°æ•°éƒ¨åˆ†
         double xiaoshu = db - (int)db;
         for (int i = 0; i < 6; i++)
         {
@@ -435,10 +435,10 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-10.memchr:Ä³¶ÎÄÚ´æÖĞÑ°ÕÒÄ³¸öÖµ
+å¤åˆ¶ä»£ç 
+10.memchr:æŸæ®µå†…å­˜ä¸­å¯»æ‰¾æŸä¸ªå€¼
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<stdio.h>
 #include<stdlib.h>
 #include<memory.h>
@@ -470,14 +470,14 @@ void main()
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-11.memccpy£ºÄÚ´æ¿½±´£¬Ö±µ½Ò»¸öÖµ½áÊø
+å¤åˆ¶ä»£ç 
+11.memccpyï¼šå†…å­˜æ‹·è´ï¼Œç›´åˆ°ä¸€ä¸ªå€¼ç»“æŸ
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<stdio.h>
 #include<stdlib.h>
 #include<memory.h>
-//ÏÂ±ê·¨
+//ä¸‹æ ‡æ³•
 void * mymemccpybyindex(void * dest, const void * sor,int val, size_t len)
 {
         if (dest == NULL || sor == NULL)
@@ -491,7 +491,7 @@ void * mymemccpybyindex(void * dest, const void * sor,int val, size_t len)
         }
         return dest;
 }
-//Ö¸Õë·¨
+//æŒ‡é’ˆæ³•
 void * mymemccpybyaddr(void * dest, const void * sor,int val, size_t len)
 {
         if (dest == NULL || sor == NULL)
@@ -513,18 +513,18 @@ void * mymemccpybyaddr(void * dest, const void * sor,int val, size_t len)
 void main()
 {
         char str[50] = "fengcong is fucking too handsome";
-        char * pstr = (char[50]) { 0 };  //ÔÚÕ»ÉÏ¿ª±ÙÒ»¶ÎÄÚ´æ
+        char * pstr = (char[50]) { 0 };  //åœ¨æ ˆä¸Šå¼€è¾Ÿä¸€æ®µå†…å­˜
         //printf("%s\n", memccpy(pstr,str,'s',32));
         printf("%s\n", mymemccpybyaddr(pstr, str, 'f', 32));
  
         system("pause");
 }
-¸´ÖÆ´úÂë
-12.memicmp:±È½ÏÄ³¶ÎÄÚ´æ´óĞ¡£¨Ò»¸ö×Ö½ÚÒ»¸ö×Ö½Ú±È½Ï£¬Ïñstrcmp£©
+å¤åˆ¶ä»£ç 
+12.memicmp:æ¯”è¾ƒæŸæ®µå†…å­˜å¤§å°ï¼ˆä¸€ä¸ªå­—èŠ‚ä¸€ä¸ªå­—èŠ‚æ¯”è¾ƒï¼Œåƒstrcmpï¼‰
 
-×¢Òâ£ºÇĞ²»¿ÉÓÃÀ´±È½ÏÕûÊı£¬³ı·ÇÒ»×Ö½ÚÕûÊı£¬ÒòÎªÕûÊı´æ´¢·½Ê½ÊÇ¸ßÎ»¸ß×Ö½Ú
+æ³¨æ„ï¼šåˆ‡ä¸å¯ç”¨æ¥æ¯”è¾ƒæ•´æ•°ï¼Œé™¤éä¸€å­—èŠ‚æ•´æ•°ï¼Œå› ä¸ºæ•´æ•°å­˜å‚¨æ–¹å¼æ˜¯é«˜ä½é«˜å­—èŠ‚
 
-¸´ÖÆ´úÂë
+å¤åˆ¶ä»£ç 
 #include<stdio.h>
 #include<stdlib.h>
 #include<memory.h>
@@ -560,7 +560,7 @@ void main()
         system("pause");
 }
 
-strrev£º×Ö·û´®Äæ×ª
+strrevï¼šå­—ç¬¦ä¸²é€†è½¬
 #include<string.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -572,7 +572,7 @@ char * mystrrev(char * str)
         {
                 ;
         }
-        p1 -= 2; //»Øµ½×îºóÒ»¸ö×Ö·û
+        p1 -= 2; //å›åˆ°æœ€åä¸€ä¸ªå­—ç¬¦
         while (p1 - p2 >= 1)
         {
                 char temp = *p1;
@@ -594,7 +594,7 @@ void main()
 }
 
 
-4.strlwr:´óĞ´×ªĞ¡Ğ´
+4.strlwr:å¤§å†™è½¬å°å†™
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -620,8 +620,8 @@ void main()
 }
 
 
-5.strrev£º×Ö·û´®Äæ×ª
-ÊµÏÖÏë·¨£ºÍ·Ê×½»»»£¬Ö±µ½ÖĞ¼ä
+5.strrevï¼šå­—ç¬¦ä¸²é€†è½¬
+å®ç°æƒ³æ³•ï¼šå¤´é¦–äº¤æ¢ï¼Œç›´åˆ°ä¸­é—´
 #include<string.h>
 #include<stdio.h>
 #include<stdlib.h>
@@ -633,7 +633,7 @@ char * mystrrev(char * str)
         {
                 ;
         }
-        p1 -= 2; //»Øµ½×îºóÒ»¸ö×Ö·û
+        p1 -= 2; //å›åˆ°æœ€åä¸€ä¸ªå­—ç¬¦
         while (p1 - p2 >= 1)
         {
                 char temp = *p1;
